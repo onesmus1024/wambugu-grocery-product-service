@@ -8,15 +8,15 @@ pipeline{
   }
   stages{
     
-    stage('Build'){
-      steps{
-        sh 'mvn clean package -DskipTests'
-        sh 'sudo docker build -t onesmus1024/wambugu-grocery-product-service .'
-      }
-    }
     stage('Test'){
       steps{
-        echo "test"
+        echo 'test
+      }
+    }
+    stage('Build'){
+      steps{
+        sh 'mvn clean install -DskipTests'
+        sh 'sudo docker build -t onesmus1024/wambugu-grocery-product-service .'
       }
     }
     stage('push'){

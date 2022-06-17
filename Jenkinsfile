@@ -15,18 +15,19 @@ pipeline{
     }
     stage('Build'){
       steps{
+        sh 'echo docker_credentials_psw|docker login -u docker_credentials_usr --password-sdtin'
         sh 'mvn install -DskipTests'
-//         sh 'sudo docker build -t onesmus1024/wambugu-grocery-product-service .'
+        sh 'docker build -t onesmus1024/wambugu-grocery-product-service .'
       }
     }
     stage('push'){
       steps{
-        sh 'sudo docker push onesmus1024/wambugu-grocery-product-service  '
+        sh 'docker push onesmus1024/wambugu-grocery-product-service  '
       }
     }
     stage('Deploy'){
       steps{
-        echo "sudo docker push onesmus1024/wambugu-grocery-product-service  "
+        echo "docker push onesmus1024/wambugu-grocery-product-service  "
       }
     }
   }

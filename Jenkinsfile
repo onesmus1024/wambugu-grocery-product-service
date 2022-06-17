@@ -4,7 +4,7 @@
 pipeline{
   agent any
   tools{
-    maven
+    maven 'maven_3_8_5'
   }
   environment{
     docker_credentials=credentials('dockerhub')

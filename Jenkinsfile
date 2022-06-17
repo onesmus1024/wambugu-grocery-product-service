@@ -15,7 +15,6 @@ pipeline{
     }
     stage('Build'){
       steps{
-        sh 'echo docker_credentials_psw|docker login -u docker_credentials_usr --password-sdtin'
         sh 'mvn install -DskipTests'
         sh 'docker build -t onesmus1024/wambugu-grocery-product-service .'
       }
@@ -27,6 +26,7 @@ pipeline{
     }
     stage('Deploy'){
       steps{
+//         sh 'echo docker_credentials_psw|docker login -u docker_credentials_usr --password-sdtin'
         echo "docker push onesmus1024/wambugu-grocery-product-service  "
       }
     }

@@ -3,9 +3,6 @@
 
 pipeline{
   agent any
-  tools{
-    mvn 'Maven 3.8.5'
-  }
   environment{
     docker_credentials=credentials('dockerhub')
   }

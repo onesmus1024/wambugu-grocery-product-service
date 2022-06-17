@@ -16,8 +16,7 @@ pipeline{
     stage('Build'){
       steps{
         sh 'mvn install -DskipTests'
-        sh 'sudo docker login -u docker_credentials_usr -p docker_credentials_psw'
-        sh 'sudo docker build -t onesmus1024/wambugu-grocery-product-service .'
+//         sh 'sudo docker build -t onesmus1024/wambugu-grocery-product-service .'
       }
     }
     stage('push'){
